@@ -58,7 +58,9 @@ d = document;
 			_$ = function (selector){
 				return d.querySelectorAll(selector);
 			};
-	
+		
+	// ES6 Includes() function, be careful: might not be supported
+	// in browsers which do not support ES6
 	if(w.location.toString().includes('prashantsani.github.io')){
 		url = 'helpers/dummy-json.json'
 	}

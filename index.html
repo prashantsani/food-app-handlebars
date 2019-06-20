@@ -108,10 +108,10 @@
 	</script>
 
 	<script id="template-categories" type="text/x-handlebars-template">
-			<h1>Select Categories</h1>
-			<ul>
+			<h1 class="h3">Select Categories</h1>
+			<ul class="categories horizontal-scrolling unstyled">
 				{{#each categories}}
-					<li><button data-toggle-category="{{url}}">
+					<li class="category"><button data-toggle-category="{{url}}" class="filter-products">
 							<img src="{{image}}" alt="Image for {{name}}" class="image"> 
 							<span>{{name}}</span>
 						</button>

@@ -254,7 +254,9 @@
 		#main{
 
 		}
+		@import 'common.scss';
 		@import 'product.scss';
+		@import 'categories.scss';
 	/* ------------
 		Pages
 	------------ */

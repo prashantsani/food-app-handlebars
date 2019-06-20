@@ -1,0 +1,18 @@
+#categories-filters{
+  h1{
+    margin-bottom: 10px;
+  }
+  margin: 40px 0;
+}
+.category{
+  button{
+    background-color: $white;
+    border: 1px solid $grey-dark;
+    color: inherit;
+  }
+  img{
+    width: 30px;
+    height: 40px;
+  }
+
+}
