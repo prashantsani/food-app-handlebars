@@ -58,21 +58,25 @@ d = document;
 			_$ = function (selector){
 				return d.querySelectorAll(selector);
 			};
+	
+	if(w.location.toString().includes('prashantsani.github.io')){
+		url = 'helpers/dummy-json.json'
+	}
 
 	// We will have to use the click handler on document level
 	// Reason for doing so is the favorites button will be dynamically created
-	document.addEventListener('click',function(e){
+	d.addEventListener('click',function(e){
 		if( e.target && e.target.classList.contains('favorite') ) {
 				alert('Favorited!!');
 			}
 	});
 
 	function initCategories(){
-		document.getElementById('categories-filters').innerHTML = template_category(data);
+		d.getElementById('categories-filters').innerHTML = template_category(data);
 	}
 
 	function initProducts(){
-		var product_wrap = document.getElementById('products-wrap');
+		var product_wrap = d.getElementById('products-wrap');
 		for(let index=0; index < data.recipes.length; index++){
 			product_wrap.innerHTML = product_wrap.innerHTML + template_product(data.recipes[index])
 		}
