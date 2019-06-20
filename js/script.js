@@ -54,6 +54,7 @@ d = document;
 			data = undefined,
 			url = 'http://temp.dash.zeta.in/food.php',
 			template_product = Handlebars.compile(d.getElementById('template-product').innerHTML),
+			template_category = Handlebars.compile(d.getElementById('template-categories').innerHTML),
 			_$ = function (selector){
 				return d.querySelectorAll(selector);
 			};
@@ -67,7 +68,7 @@ d = document;
 	});
 
 	function initCategories(data){
-
+		_$('#categories-filters').innerHTML = template_product(data.categories);
 	}
 
 	function initProducts(){
@@ -83,7 +84,12 @@ d = document;
 			if (request.status >= 200 && request.status < 400) {
 					// Success!!
 					data = JSON.parse(request.responseText);
-					initProducts()
+					data.categories = data.categories.map(function(el) {
+						var o = Object.assign({}, el);
+						o.url = el.name.toLowerCase().replace(' ','-');
+						return o;
+					})
+					initProducts();
 			} else {
 					data = 'We reached our target server, but it returned an error'
 			}
