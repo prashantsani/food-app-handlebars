@@ -30,37 +30,18 @@
 /* =============================================================================
 	 1. SCSS Variables
 ========================================================================== */
-	$u10: 0.624em;
-	$u10: 0.702rem;
-	$u12: 0.79rem;
-	$u14: 0.889rem;
-	$u16: 1rem;
-	$u18: 1.125rem;
-	$u20: 1.25rem;
-	$u22: 1.375rem;
-	$u24: 1.5rem;
-	$u28: 1.75rem;
-	$u32: 2rem;
-	$u36: 2.25rem;
-	$u40: 2.5rem;
-	$u45: 2.8125rem;
-	$u48: 3rem;
-	$u60: 3.75rem;
-	$u100: 6.25rem;
-	$u130: 8.125rem;
-	$u160: 10rem;
 
-	// Primary Colors
+	// Colors
+	$green: #36b76f;
+	$green-light: #44cb81;
+	
+	$white: #ffffff;
 
-	// Secondary Colors
+	$grey-dark: #545454;
+	$grey: #999999;
+	$grey-light: #f1f1f1;
 
-	// Tertiary Colors
-
-	// Background Color
-
-
-	// Grids
-
+	
 	// Sizes
 	$tablet-p: 780px; // -
 	$tablet-l: 1020px; // -
@@ -121,64 +102,52 @@
 			border: none;
 			background: transparent
 		}
+		button,
+		.button{
+			background-color: $green;
+			color: $white;
+			.no-touchevents &:hover{
+				// hovers are disabled for touch screen devices 
+				// because 
+				background-color: $green-light;
+			}
+		}
 
 	/* ------------
 		Typography
 	------------ */
+	// Following Heading Sizes as per bootstrap
 	html{
-		// color: ;
-		// font-family: ;
-		// background-color: ;
-		// @media screen and (min-width:1500px){
-		// 	font-size: 18px;
-		// }
-		// @media screen and (max-width:1000px){
-		// 	font-size: 15px;
-		// }
-		// @media screen and (max-width:900px){
-		// 	font-size: 14px;
-		// }
-		// @media screen and (max-width:800px){
-		// 	font-size: 12px;
-		// }
-		// @media screen and (max-width:700px){
-		// 	font-size: 10px;
-		// }
+		font-family: ProximaNova-Regular,Helvetica,Arial,sans-serif;
+		font-size: 12px;
 	}
-	// Going as per http://www.modularscale.com/?1&em&1.125
 	h1, h2, h3, h4, h5,
 	.h1, .h2, .h3, .h4, .h5{
-		
+		font-family: ProximaNova-Bold,Helvetica,Arial,sans-serif;
 	}
 	h1, .h1{
-		// font-family:
-		// font-size :
-		// line-height:
-		// font-family: ;
-
+		font-size: 2.5rem;
 		&.heading{
 			position: relative;
 		}
 	}
 	h2, .h2{
-
+		font-size: 2rem
 	}
 	h3, .h3{
-
+		font-size: 1.75rem;
 	}
 	h4, .h4{
-
+		font-size: 1.5rem
 	}
 	h5, .h5{
-
+		font-size: 1.25rem
 	}
 	h6,.h6{
-		font-family: 'ralewaymedium';
-    font-size: $u14;
+    font-size: 1rem;
     color: inherit;
 	}
 	small{
-		font-size: $u12;
 		line-height: 1.8;
     letter-spacing: 0.169em;
 	}
@@ -228,25 +197,13 @@
 	.text-center{
 		text-align: center;
 	}
-	pre, code, kbd, samp { font-family: monospace, serif; font-size: inherit; }
-	pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
-	h1,h2,h3,h4,h5,h6,strong{
-		font-weight: normal;
+	.text{
+		&-white{
+			color: $white;
+		}
 	}
 	.text-center{
 		text-align: center
-	}
-	.spaced{
-		// letter-spacing: $letter-spacing;
-		// margin-right: -$letter-spacing;
-	}
-	.prev-next-wrap{
-		margin-left: auto;
-		margin-right: auto;
-		font-size: $u14;
-		margin-bottom: 1em;
-		width: 1500px;
-    max-width: 80%;
 	}
 	/* ------------
 		Globals
@@ -254,7 +211,9 @@
 		.wrap {
 			margin: 0 auto;
 			position: relative;
-			z-index: 1
+			z-index: 1;
+			width: 1440px; // Why https://1440px.com/ is ideal grid 
+			max-width: 96%;
 		}
 
 	/* ------------
