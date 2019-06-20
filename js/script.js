@@ -5,11 +5,6 @@
 	https://prashantsani.com
 
 */
-Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-	get: function(){
-		return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
-	}
-});
 function whichAnimationEvent(){
 	var t,
 		el = document.createElement("fakeelement");
@@ -54,43 +49,23 @@ Modernizr.on('webp', function(result) {
 
 
 (function(w,d){
-	var $html = $('html');
+	var request = new XMLHttpRequest(),
+			data = undefined,
+			url = 'http://temp.dash.zeta.in/food.php';	
 
-	$(d).on('load',function () {
+	request.open('POST', url, true);
+	request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+					// Success!!
+					data = JSON.parse(request.responseText);
+					console.log(data);
+			} else {
+					data = 'We reached our target server, but it returned an error'
+			}
+	};
+	request.onerror = function() {
+			data =  'Ajax Error'
+	};
+	request.send();
 
-	});
-
-	$(w).on('resize',function () {
-
-	});
-
-	/* ------------
-		Form Submit
-	------------ */
-	// document.getElementById("contactForm").onsubmit = function() {
-	// 		//Ajax
-	// 		var dataString = {
-	// 			"name" :$("#name").val(),
-	// 			"email": $("#email").val(),
-	// 			"subject": $("#subject").val(),
-	// 			"message":$("#message").val()
-	// 		}
-
-	// 		$.ajax({
-	// 			url: "https://formspree.io/",
-	// 			method: "POST",
-	// 			data: dataString,
-	// 			dataType: "json",
-	// 			success: function(data) {
-	// 				alert('successfully submitted form!');
-	// 				$("#name").val('');
-	// 				$("#email").val('');
-	// 				$("#subject").val('');
-	// 				$("#message").val('');
-	// 			},
-	// 			error: function(){
-	// 				alert('Error!');
-	// 			}
-	// 		});
-	// }
 })(window,document);

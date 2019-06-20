@@ -62,8 +62,7 @@ var utils= {
         clear : function(){
             this.history = []
         }
-    },
-    googleAPILoaded: false
+    }
 };
 
 function initStoresMap(){
