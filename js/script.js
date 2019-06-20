@@ -47,10 +47,11 @@ Modernizr.on('webp', function(result) {
 	Plugins
 ------------ */
 
-// w = window;
-// d = document;
-(function(w,d){
-	var request = new XMLHttpRequest(),
+w = window;
+d = document;
+//(function(w,d){
+	var _html = d.documentElement,
+			request = new XMLHttpRequest(),
 			data = undefined,
 			url = 'http://temp.dash.zeta.in/food.php',
 			template_product = Handlebars.compile(d.getElementById('template-product').innerHTML),
@@ -96,6 +97,13 @@ Modernizr.on('webp', function(result) {
 		}
 	}
 
+	function initProductPage(){
+		var product_wrap = d.getElementById('products-wrap');
+
+		// NOT DYNAMIC NOW
+		product_wrap.innerHTML = product_wrap.innerHTML + template_product(data.recipes[0])
+	}
+
 	// Ajaxing data
 	request.open('GET', url, true);
 	request.onload = function() {
@@ -111,9 +119,14 @@ Modernizr.on('webp', function(result) {
 						var o = Object.assign({}, el);
 						o.category = el.category.toLowerCase().replace(' ','-');
 						return o;
-					})
-					initProducts();
-					initCategories()
+					});
+					if(_html.classList.contains('index')){
+						initProducts();
+						initCategories()
+					}else if(_html.classList.contains('product-pg')){
+						initProductPage();
+					}
+					
 			} else {
 					data = 'We reached our target server, but it returned an error'
 			}
@@ -123,4 +136,4 @@ Modernizr.on('webp', function(result) {
 	};
 	request.send();
 
-})(window,document);
+//})(window,document);
