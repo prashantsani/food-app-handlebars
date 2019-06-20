@@ -1,4 +1,6 @@
 # Food App
+This code is available as a website at https://prashantsani.github.io/food-app-handlebars/
+
 
 ## Objective
 - To create a food App using HTML, CSS and JavaScript 

@@ -47,18 +47,44 @@ Modernizr.on('webp', function(result) {
 	Plugins
 ------------ */
 
-
-(function(w,d){
+w = window;
+d = document;
+//(function(w,d){
 	var request = new XMLHttpRequest(),
 			data = undefined,
-			url = 'http://temp.dash.zeta.in/food.php';	
+			url = 'http://temp.dash.zeta.in/food.php',
+			template_product = Handlebars.compile(d.getElementById('template-product').innerHTML),
+			_$ = function (selector){
+				return d.querySelectorAll(selector);
+			};
 
-	request.open('POST', url, true);
+	// We will have to use the click handler on document level
+	// Reason for doing so is the favorites button will be dynamically created
+	document.addEventListener('click',function(e){
+		if( e.target && e.target.classList.contains('favorite') ) {
+				alert('Favorited!!');
+			}
+	});
+
+	function initCategories(data){
+
+	}
+
+	function initProducts(){
+		var product_wrap = document.getElementById('products-wrap');
+		for(let index=0; index < data.recipes.length; index++){
+			product_wrap.innerHTML = product_wrap.innerHTML + template_product(data.recipes[index])
+		}
+	}
+
+	// Ajaxing data
+	request.open('GET', url, true);
 	request.onload = function() {
 			if (request.status >= 200 && request.status < 400) {
 					// Success!!
 					data = JSON.parse(request.responseText);
-					console.log(data);
+					initProducts()
+					
 			} else {
 					data = 'We reached our target server, but it returned an error'
 			}
@@ -68,4 +94,4 @@ Modernizr.on('webp', function(result) {
 	};
 	request.send();
 
-})(window,document);
+//})(window,document);

@@ -72,12 +72,6 @@
 <body id="body">
 
 	<noscript><p class="warning"><a href="http://www.enable-javascript.com/" target="_blank">To enjoy the full website, first enable JavaScript</a></p></noscript>
-	<svg class="hidden">
-		<!-- SVG Symbol definations -->
-		<symbol id="abc">
-
-		</symbol>
-	</svg>
 
 	<header class="page-header text-center">
 		<div class="wrap">
@@ -85,10 +79,10 @@
 		</div>
 	</header>
 
-
-
-	<main class="index-content" id="index-content">
-		<section></section>
+	<main class="index-content wrap" id="index-content">
+		<section id="favorites-wrap" class="container"></section>
+		<section id="categories-filters" class="container"></section>
+		<section id="products-wrap" class="container"></section>
 	</main>
 
 	<footer class="footer">
@@ -100,7 +94,18 @@
 		<p class="copyright">&copy;</p>
 	</footer>
 
-
+	<script id="template-product" type="text/x-handlebars-template">
+		<article class="product" data-category="{{category}}">
+			<img src="{{image}}" alt="Image for {{name}}" class="image"> 
+			<div class="d-flex space-between">
+				<div class="description">
+					<h1 class="name h4">{{name}}</h1>
+					<h3 class="price h5">₹{{price}}</h3>
+				</div>
+				<button>Add to Cart</button>
+			</div>
+		</article>
+	</script>
 	<script src="js/vendor/handlebars.js"></script>
 	<script src="js/script.js"></script>
 

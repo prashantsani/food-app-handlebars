@@ -1,0 +1,28 @@
+.product{
+  margin-bottom: 50px;
+  max-width: 500px;
+  button{
+    width: 150px;
+    align-self: flex-start;
+  }
+  .name{
+    margin-bottom: 5px
+  }
+  .description{
+    margin-right: 20px;
+  }
+  .price{
+    color: $grey;
+  }
+  .image{
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
+		width: 100%;
+		display: inline-block;
+		object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
