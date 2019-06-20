@@ -1,0 +1,327 @@
+/*
+	Food App Website
+
+
+	HTML,CSS,JS Code developed by :
+	Author:Prashant Sani,<contact@prashantsani.com>
+
+	Colour Codes:
+	base level Height :
+	base level Width :
+
+	sass --watch main.scss:style.css --style compressed
+
+*/
+
+/* =============================================================================
+	Index
+
+	1) SCSS Variables
+	2) Fonts / Mixins / Functions / Plugins
+	3) Global Styles, Resets, Global Links, Abstraction
+	4) Header, Main Navigation
+	5) Content
+	6) Footer
+	7) Forms
+	8) JS Library Styles
+	9) Non-Symentic Class / Helper Classes
+	10) Print Styles
+	==========================================================================  */
+/* =============================================================================
+	 1. SCSS Variables
+========================================================================== */
+	$u10: 0.624em;
+	$u10: 0.702rem;
+	$u12: 0.79rem;
+	$u14: 0.889rem;
+	$u16: 1rem;
+	$u18: 1.125rem;
+	$u20: 1.25rem;
+	$u22: 1.375rem;
+	$u24: 1.5rem;
+	$u28: 1.75rem;
+	$u32: 2rem;
+	$u36: 2.25rem;
+	$u40: 2.5rem;
+	$u45: 2.8125rem;
+	$u48: 3rem;
+	$u60: 3.75rem;
+	$u100: 6.25rem;
+	$u130: 8.125rem;
+	$u160: 10rem;
+
+	// Primary Colors
+
+	// Secondary Colors
+
+	// Tertiary Colors
+
+	// Background Color
+
+
+	// Grids
+
+	// Sizes
+	$tablet-p: 780px; // -
+	$tablet-l: 1020px; // -
+	$laptop:1350px; // -
+	$laptop:1500px; //+
+
+	// Section Heights
+
+	// Letter Spacing
+
+	$site_url: '';
+
+/* =============================================================================
+	 2. Fonts / Mixins / Functions / Plugins
+========================================================================== */
+	@import 'fonts.scss';
+	@import 'mixins.scss';
+	@import 'flex.scss';
+	@import 'preloader.scss';
+
+/* =============================================================================
+	 3. Global Styles, Resets, Global Links, Abstraction
+========================================================================== */
+	/* ------------
+		HTML 5 Resets
+	------------ */
+		@import 'reset.scss';
+	/* ------------
+		Selection
+	------------ */
+		::-moz-selection { background: #2d2d32; color: #fff; text-shadow: none;opacity: 1 }
+		::selection { background: #2d2d32; color: #fff; text-shadow: none;opacity: 1 }
+	/* ------------
+		Selection
+	------------ */
+	ol.unstyled,
+	ul.unstyled{
+		list-style-type: none;
+	}
+	/* ------------
+		Links & Buttons
+	------------ */
+		a, button {
+			text-decoration: none;
+			@include transition(all 0.3s ease-in-out);
+		}
+		a:link,a:visited{
+			color: inherit;
+		}
+		.no-touchevents a:hover,
+		.no-touchevents a:active{
+		}
+		.current-link {
+			cursor: default;
+		}
+		button, button:hover {
+			outline: none;
+			border: none;
+			background: transparent
+		}
+
+	/* ------------
+		Typography
+	------------ */
+	html{
+		// color: ;
+		// font-family: ;
+		// background-color: ;
+		// @media screen and (min-width:1500px){
+		// 	font-size: 18px;
+		// }
+		// @media screen and (max-width:1000px){
+		// 	font-size: 15px;
+		// }
+		// @media screen and (max-width:900px){
+		// 	font-size: 14px;
+		// }
+		// @media screen and (max-width:800px){
+		// 	font-size: 12px;
+		// }
+		// @media screen and (max-width:700px){
+		// 	font-size: 10px;
+		// }
+	}
+	// Going as per http://www.modularscale.com/?1&em&1.125
+	h1, h2, h3, h4, h5,
+	.h1, .h2, .h3, .h4, .h5{
+		
+	}
+	h1, .h1{
+		// font-family:
+		// font-size :
+		// line-height:
+		// font-family: ;
+
+		&.heading{
+			position: relative;
+		}
+	}
+	h2, .h2{
+
+	}
+	h3, .h3{
+
+	}
+	h4, .h4{
+
+	}
+	h5, .h5{
+
+	}
+	h6,.h6{
+		font-family: 'ralewaymedium';
+    font-size: $u14;
+    color: inherit;
+	}
+	small{
+		font-size: $u12;
+		line-height: 1.8;
+    letter-spacing: 0.169em;
+	}
+	p, .p, label{
+		// font-family: ;
+		// line-height: ;
+		// font-size: ;
+		// margin-bottom: ;
+		// letter-spacing: ;
+		// font-weight: ;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		strong,b{
+			// font-family:
+		}
+		em,u,i{
+			text-decoration: underline;
+		}
+	}
+	.p{
+		color: inherit;
+	}
+	.pushed{
+		margin-left: 2.5em
+	}
+	dd{
+
+	}
+	time{
+
+	}
+	a{
+		font-family: inherit;
+	}
+	.text-left,
+	.text-right,
+	.text-center{
+		display: block;
+	}
+	.text-left{
+		text-align: left;
+	}
+	.text-right{
+		text-align: right;
+	}
+	.text-center{
+		text-align: center;
+	}
+	pre, code, kbd, samp { font-family: monospace, serif; font-size: inherit; }
+	pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+	h1,h2,h3,h4,h5,h6,strong{
+		font-weight: normal;
+	}
+	.text-center{
+		text-align: center
+	}
+	.spaced{
+		// letter-spacing: $letter-spacing;
+		// margin-right: -$letter-spacing;
+	}
+	.prev-next-wrap{
+		margin-left: auto;
+		margin-right: auto;
+		font-size: $u14;
+		margin-bottom: 1em;
+		width: 1500px;
+    max-width: 80%;
+	}
+	/* ------------
+		Globals
+	------------ */
+		.wrap {
+			margin: 0 auto;
+			position: relative;
+			z-index: 1
+		}
+
+	/* ------------
+		Icons
+	------------ */
+		.icon{
+			font-size: 0;
+			line-height: 0;
+		}
+	/* ------------
+		Page Fade-in/out
+	------------ */
+	html{
+
+	}
+	html.no-js{
+
+	}
+
+/* =============================================================================
+	 4. Header, Main Nav
+========================================================================== */
+	// Combining Header and Nav for Landing and blog page
+	@import 'header.scss';
+	@import 'nav.scss';
+	@import 'social.scss';
+
+
+/* =============================================================================
+	 5. Content
+========================================================================== */
+		#main{
+
+		}
+
+
+	/* ------------
+		Pages
+	------------ */
+		@import '_pages/index.scss';
+		@import '_pages/details.scss';
+
+/* =============================================================================
+	6. Footer
+========================================================================== */
+	@import 'footer.scss';
+
+/* =============================================================================
+	7. Forms
+========================================================================== */
+	@import 'forms.scss';
+
+/* =============================================================================
+	8. JS Library Styles
+========================================================================== */
+
+/* =============================================================================
+	9. Non-Symentic Class / Helper Classes
+========================================================================== */
+	@import 'helper.scss';
+
+/* =============================================================================
+	10. Print Styles
+========================================================================== */
+
+@media print {
+	#hamburger{
+		display: none
+	}
+}
