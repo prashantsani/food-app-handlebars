@@ -47,9 +47,9 @@ Modernizr.on('webp', function(result) {
 	Plugins
 ------------ */
 
-w = window;
-d = document;
-//(function(w,d){
+// w = window;
+// d = document;
+(function(w,d){
 	var request = new XMLHttpRequest(),
 			data = undefined,
 			url = 'http://temp.dash.zeta.in/food.php',
@@ -68,9 +68,21 @@ d = document;
 	// We will have to use the click handler on document level
 	// Reason for doing so is the favorites button will be dynamically created
 	d.addEventListener('click',function(e){
-		if( e.target && e.target.classList.contains('favorite') ) {
-				alert('Favorited!!');
-			}
+		var elem = e.target
+		if( elem && elem.classList.contains('filter-products') ) {
+				//document.querySelectorAll('.filter-products.active')[0].classList.add('active');
+				
+				console.log(elem)
+				elem.classList.add('active');
+				// Filter Products
+				let elements = document.querySelectorAll('.products');
+				Array.prototype.forEach.call(elements, function(el, i){
+					(console.log(this))
+				});
+		}
+		if( elem && elem.classList.contains('favorite') ) {
+				// Add to Favorites
+		}
 	});
 
 	function initCategories(){
@@ -94,6 +106,11 @@ d = document;
 						var o = Object.assign({}, el);
 						o.url = el.name.toLowerCase().replace(' ','-');
 						return o;
+					});
+					data.recipes = data.recipes.map(function(el) {
+						var o = Object.assign({}, el);
+						o.category = el.category.toLowerCase().replace(' ','-');
+						return o;
 					})
 					initProducts();
 					initCategories()
@@ -106,4 +123,4 @@ d = document;
 	};
 	request.send();
 
-//})(window,document);
+})(window,document);

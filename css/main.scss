@@ -111,6 +111,7 @@
 			line-height: 1;
 			border-radius: 5px;
 			font-size: 1rem;
+			&.active,
 			.no-touchevents &:hover{
 				// hovers are disabled for touch screen devices 
 				// because 
