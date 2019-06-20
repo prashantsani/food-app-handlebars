@@ -107,7 +107,18 @@
 		</article>
 	</script>
 
-	
+	<script id="template-categories" type="text/x-handlebars-template">
+			<h1>Select Categories</h1>
+			<ul>
+				{{#each categories}}
+					<li><button data-toggle-category="{{url}}">
+							<img src="{{image}}" alt="Image for {{name}}" class="image"> 
+							<span>{{name}}</span>
+						</button>
+					</li>
+				{{/each}}
+			</ul>
+	</script>
 
 	<script src="js/vendor/handlebars.js"></script>
 	<script src="js/script.js"></script>

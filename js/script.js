@@ -67,8 +67,8 @@ d = document;
 			}
 	});
 
-	function initCategories(data){
-		_$('#categories-filters').innerHTML = template_product(data.categories);
+	function initCategories(){
+		document.getElementById('categories-filters').innerHTML = template_category(data);
 	}
 
 	function initProducts(){
@@ -90,6 +90,7 @@ d = document;
 						return o;
 					})
 					initProducts();
+					initCategories()
 			} else {
 					data = 'We reached our target server, but it returned an error'
 			}
