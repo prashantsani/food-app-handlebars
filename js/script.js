@@ -84,7 +84,6 @@ d = document;
 					// Success!!
 					data = JSON.parse(request.responseText);
 					initProducts()
-					
 			} else {
 					data = 'We reached our target server, but it returned an error'
 			}
